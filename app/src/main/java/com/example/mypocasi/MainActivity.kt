@@ -21,5 +21,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
+        val btnKonec = findViewById(R.id.btnKonec) as Button
+
+        btnKonec.setOnClickListener{
+            finish()
+        }
     }
 }
