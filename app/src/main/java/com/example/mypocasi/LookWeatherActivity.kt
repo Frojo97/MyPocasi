@@ -27,10 +27,11 @@ class LookWeatherActivity : AppCompatActivity() {
 
         val btnHledat = findViewById(R.id.btnHledat) as Button
         btnHledat.setOnClickListener {
+            findViewById<TextView>(R.id.tvPrazdny).visibility = View.GONE
             if (hledaneMesto.length > 0)
                 pocasi().execute()
             else
-                findViewById<TextView>(R.id.tvChyba).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.tvPrazdny).visibility = View.VISIBLE
         }
     }
 
