@@ -2,14 +2,27 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clHlavni"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LookWeatherActivity"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    tools:context=".LookWeatherActivity">
+
+    <ProgressBar
+        android:id="@+id/pbNacitani"
+        android:layout_width="164dp"
+        android:layout_height="161dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="232dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etHledat"
-        android:layout_width="295dp"
+        android:layout_width="318dp"
         android:layout_height="59dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -24,11 +37,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnHledat"
         android:layout_width="61dp"
         android:layout_height="66dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
         android:layout_marginTop="16dp"
         android:insetTop="0dp"
         app:icon="@drawable/search32"
@@ -52,7 +63,7 @@
 
     <TextView
         android:id="@+id/tvZeme"
-        android:layout_width="270dp"
+        android:layout_width="295dp"
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -78,7 +89,7 @@
 
     <TextView
         android:id="@+id/tvMesto"
-        android:layout_width="270dp"
+        android:layout_width="295dp"
         android:layout_height="32dp"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
@@ -90,8 +101,8 @@
 
     <TextView
         android:id="@+id/tvTemp"
-        android:layout_width="355dp"
-        android:layout_height="92dp"
+        android:layout_width="380dp"
+        android:layout_height="91dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
@@ -130,8 +141,8 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginLeft="84dp"
+        android:layout_marginStart="109dp"
+        android:layout_marginLeft="109dp"
         android:layout_marginTop="27dp"
         android:text="Max. teplota:"
         android:textColor="@color/white"
@@ -143,9 +154,9 @@
         android:id="@+id/tvMax"
         android:layout_width="137dp"
         android:layout_height="34dp"
-        android:layout_marginStart="85dp"
-        android:layout_marginLeft="85dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="15dp"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/tvMin"
@@ -228,5 +239,18 @@
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/tvStartSun" />
+
+    <TextView
+        android:id="@+id/tvChyba"
+        android:layout_width="235dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pbNacitani"
+        android:text="Něco se pokazilo"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
