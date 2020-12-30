@@ -1,6 +1,5 @@
 package com.example.mypocasi
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -84,10 +83,16 @@ class LookWeatherActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.tvZemeText).visibility = View.VISIBLE
                 findViewById<TextView>(R.id.tvZeme).visibility = View.VISIBLE
                 findViewById<TextView>(R.id.tvTemp).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.tvMinText).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.tvMin).visibility = View.VISIBLE
                 findViewById<TextView>(R.id.tvMaxText).visibility = View.VISIBLE
                 findViewById<TextView>(R.id.tvMax).visibility = View.VISIBLE
-                findViewById<TextView>(R.id.tvMinText).visibility = View.VISIBLE
                 findViewById<TextView>(R.id.tvRychlostText).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.tvSpeedWind).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.tvVychodText).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.tvStartSun).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.tvZapadText).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.tvEndSun).visibility = View.VISIBLE
 
 
                 findViewById<TextView>(R.id.tvMin).text = teplotaMin

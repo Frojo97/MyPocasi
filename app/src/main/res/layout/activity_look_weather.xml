@@ -179,15 +179,15 @@
         android:layout_marginTop="19dp"
         android:text="Rychlost větru:"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvMin" />
 
     <TextView
         android:id="@+id/tvSpeedWind"
-        android:layout_width="219dp"
-        android:layout_height="23dp"
+        android:layout_width="205dp"
+        android:layout_height="32dp"
         android:layout_marginStart="17dp"
         android:layout_marginLeft="17dp"
         android:layout_marginTop="19dp"
@@ -206,18 +206,18 @@
         android:layout_marginTop="24dp"
         android:text="Východ slunce:"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvRychlostText" />
 
     <TextView
         android:id="@+id/tvStartSun"
-        android:layout_width="217dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="25dp"
+        android:layout_width="205dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="24dp"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:visibility="gone"
@@ -225,7 +225,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvSpeedWind" />
 
     <TextView
-        android:id="@+id/tvZapatText"
+        android:id="@+id/tvZapadText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -233,22 +233,22 @@
         android:layout_marginTop="23dp"
         android:text="Západ slunce:"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvVychodText" />
 
     <TextView
         android:id="@+id/tvEndSun"
-        android:layout_width="218dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="25dp"
+        android:layout_width="205dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="23dp"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:visibility="gone"
-        app:layout_constraintStart_toEndOf="@+id/tvZapatText"
+        app:layout_constraintStart_toEndOf="@+id/tvZapadText"
         app:layout_constraintTop_toBottomOf="@+id/tvStartSun" />
 
     <TextView
