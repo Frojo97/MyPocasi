@@ -33,8 +33,10 @@ class LookWeatherActivity : AppCompatActivity() {
             hledaneMesto = etHledat.toString()
             if (hledaneMesto.length > 0)
                 pocasi().execute()
-            else
+            else {
+                findViewById<TextView>(R.id.tvChyba).visibility = View.GONE
                 findViewById<TextView>(R.id.tvPrazdny).visibility = View.VISIBLE
+            }
         }
     }
 
