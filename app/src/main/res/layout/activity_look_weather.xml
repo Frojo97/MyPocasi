@@ -192,7 +192,7 @@
         android:layout_marginLeft="17dp"
         android:layout_marginTop="19dp"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:visibility="gone"
         app:layout_constraintStart_toEndOf="@+id/tvRychlostText"
         app:layout_constraintTop_toBottomOf="@+id/tvMax" />
@@ -219,7 +219,7 @@
         android:layout_marginLeft="13dp"
         android:layout_marginTop="24dp"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:visibility="gone"
         app:layout_constraintStart_toEndOf="@+id/tvVychodText"
         app:layout_constraintTop_toBottomOf="@+id/tvSpeedWind" />
@@ -246,7 +246,7 @@
         android:layout_marginLeft="26dp"
         android:layout_marginTop="23dp"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:visibility="gone"
         app:layout_constraintStart_toEndOf="@+id/tvZapadText"
         app:layout_constraintTop_toBottomOf="@+id/tvStartSun" />
