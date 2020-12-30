@@ -53,6 +53,7 @@ class LookWeatherActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvZemeText).visibility = View.VISIBLE
         findViewById<TextView>(R.id.tvZeme).visibility = View.VISIBLE
         findViewById<TextView>(R.id.tvTemp).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvTextPocasi).visibility = View.VISIBLE
         findViewById<TextView>(R.id.tvMinText).visibility = View.VISIBLE
         findViewById<TextView>(R.id.tvMin).visibility = View.VISIBLE
         findViewById<TextView>(R.id.tvMaxText).visibility = View.VISIBLE
@@ -71,6 +72,7 @@ class LookWeatherActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvZemeText).visibility = View.GONE
         findViewById<TextView>(R.id.tvZeme).visibility = View.GONE
         findViewById<TextView>(R.id.tvTemp).visibility = View.GONE
+        findViewById<TextView>(R.id.tvTextPocasi).visibility = View.GONE
         findViewById<TextView>(R.id.tvMinText).visibility = View.GONE
         findViewById<TextView>(R.id.tvMin).visibility = View.GONE
         findViewById<TextView>(R.id.tvMaxText).visibility = View.GONE
@@ -130,7 +132,7 @@ class LookWeatherActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.tvTemp).text = teplota
                 findViewById<TextView>(R.id.tvMesto).text = mesto
                 findViewById<TextView>(R.id.tvZeme).text = zeme
-                // findViewById<TextView>(R.id.tvZeme).text = pocasiPopis
+                findViewById<TextView>(R.id.tvTextPocasi).text = pocasiPopis
                 findViewById<TextView>(R.id.tvSpeedWind).text = vitrRychlost + " m/s"
                 findViewById<TextView>(R.id.tvStartSun).text = formatter.format(vychodSlunce*1000)
                 findViewById<TextView>(R.id.tvEndSun).text = formatter.format(zapadSlunce*1000)

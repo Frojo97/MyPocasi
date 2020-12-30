@@ -117,18 +117,31 @@
         app:layout_constraintTop_toBottomOf="@+id/tvMestoText" />
 
     <TextView
-        android:id="@+id/tvMinText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tvTextPocasi"
+        android:layout_width="377dp"
+        android:layout_height="56dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="27dp"
-        android:text="Min. teplota:"
+        android:layout_marginTop="17dp"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTemp" />
+
+    <TextView
+        android:id="@+id/tvMinText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="17dp"
+        android:text="Min. teplota:"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTextPocasi" />
 
     <TextView
         android:id="@+id/tvMin"
@@ -149,13 +162,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="109dp"
         android:layout_marginLeft="109dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="17dp"
         android:text="Max. teplota:"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:visibility="gone"
         app:layout_constraintStart_toEndOf="@+id/tvMinText"
-        app:layout_constraintTop_toBottomOf="@+id/tvTemp" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTextPocasi" />
 
     <TextView
         android:id="@+id/tvMax"
@@ -278,13 +291,5 @@
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etHledat" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="374dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
