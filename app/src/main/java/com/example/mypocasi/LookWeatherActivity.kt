@@ -21,8 +21,6 @@ class LookWeatherActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_look_weather)
         supportActionBar?.hide()
-        //pocasi().execute()
-
 
         val btnHledat = findViewById(R.id.btnHledat) as Button
         btnHledat.setOnClickListener {
@@ -36,15 +34,50 @@ class LookWeatherActivity : AppCompatActivity() {
         }
     }
 
-    inner class pocasi() : AsyncTask<String, Void, String>(){
-    /*override fun onPreExecute() {
-        super.onPreExecute()
-        //findViewById<ProgressBar>(R.id.nacitani).visibility = View.VISIBLE
-        //findViewById<ConstraintLayout>(R.id.hlavniController).visibility = View.GONE
-        findViewById<TextView>(R.id.tvChyba).visibility = View.GONE
-
+    fun visibleItem(){
+        findViewById<TextView>(R.id.tvMestoText).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvMesto).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvZemeText).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvZeme).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvTemp).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvMinText).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvMin).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvMaxText).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvMax).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvRychlostText).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvSpeedWind).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvVychodText).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvStartSun).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvZapadText).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvEndSun).visibility = View.VISIBLE
     }
-*/
+
+    fun goneItem(){
+        findViewById<TextView>(R.id.tvMestoText).visibility = View.GONE
+        findViewById<TextView>(R.id.tvMesto).visibility = View.GONE
+        findViewById<TextView>(R.id.tvZemeText).visibility = View.GONE
+        findViewById<TextView>(R.id.tvZeme).visibility = View.GONE
+        findViewById<TextView>(R.id.tvTemp).visibility = View.GONE
+        findViewById<TextView>(R.id.tvMinText).visibility = View.GONE
+        findViewById<TextView>(R.id.tvMin).visibility = View.GONE
+        findViewById<TextView>(R.id.tvMaxText).visibility = View.GONE
+        findViewById<TextView>(R.id.tvMax).visibility = View.GONE
+        findViewById<TextView>(R.id.tvRychlostText).visibility = View.GONE
+        findViewById<TextView>(R.id.tvSpeedWind).visibility = View.GONE
+        findViewById<TextView>(R.id.tvVychodText).visibility = View.GONE
+        findViewById<TextView>(R.id.tvStartSun).visibility = View.GONE
+        findViewById<TextView>(R.id.tvZapadText).visibility = View.GONE
+        findViewById<TextView>(R.id.tvEndSun).visibility = View.GONE
+    }
+
+    inner class pocasi() : AsyncTask<String, Void, String>(){
+    override fun onPreExecute() {
+        super.onPreExecute()
+        findViewById<ProgressBar>(R.id.pbNacitani).visibility = View.VISIBLE
+       // findViewById<ConstraintLayout>(R.id.clHlavni).visibility = View.GONE
+        findViewById<TextView>(R.id.tvChyba).visibility = View.GONE
+        goneItem()
+    }
         override fun doInBackground(vararg p0: String?) : String? {
             var odkaz :String?
 
@@ -77,23 +110,7 @@ class LookWeatherActivity : AppCompatActivity() {
                 val formatter: DateFormat = SimpleDateFormat("HH:mm:ss")
                 formatter.setTimeZone(TimeZone.getTimeZone("CET"))
 
-
-                findViewById<TextView>(R.id.tvMestoText).visibility = View.VISIBLE
-                findViewById<TextView>(R.id.tvMesto).visibility = View.VISIBLE
-                findViewById<TextView>(R.id.tvZemeText).visibility = View.VISIBLE
-                findViewById<TextView>(R.id.tvZeme).visibility = View.VISIBLE
-                findViewById<TextView>(R.id.tvTemp).visibility = View.VISIBLE
-                findViewById<TextView>(R.id.tvMinText).visibility = View.VISIBLE
-                findViewById<TextView>(R.id.tvMin).visibility = View.VISIBLE
-                findViewById<TextView>(R.id.tvMaxText).visibility = View.VISIBLE
-                findViewById<TextView>(R.id.tvMax).visibility = View.VISIBLE
-                findViewById<TextView>(R.id.tvRychlostText).visibility = View.VISIBLE
-                findViewById<TextView>(R.id.tvSpeedWind).visibility = View.VISIBLE
-                findViewById<TextView>(R.id.tvVychodText).visibility = View.VISIBLE
-                findViewById<TextView>(R.id.tvStartSun).visibility = View.VISIBLE
-                findViewById<TextView>(R.id.tvZapadText).visibility = View.VISIBLE
-                findViewById<TextView>(R.id.tvEndSun).visibility = View.VISIBLE
-
+                visibleItem()
 
                 findViewById<TextView>(R.id.tvMin).text = teplotaMin
                 findViewById<TextView>(R.id.tvMax).text = teplotaMax
