@@ -1,5 +1,6 @@
 package com.example.mypocasi
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -10,6 +11,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 import android.os.AsyncTask
 import android.view.View
+import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 
@@ -24,6 +27,7 @@ class LookWeatherActivity : AppCompatActivity() {
 
         val btnHledat = findViewById(R.id.btnHledat) as Button
         btnHledat.setOnClickListener {
+            hideKeyboard()
             findViewById<TextView>(R.id.tvPrazdny).visibility = View.GONE
             var etHledat = findViewById<EditText>(R.id.etHledat).text
             hledaneMesto = etHledat.toString()
@@ -32,6 +36,15 @@ class LookWeatherActivity : AppCompatActivity() {
             else
                 findViewById<TextView>(R.id.tvPrazdny).visibility = View.VISIBLE
         }
+    }
+
+    private fun hideKeyboard(){
+        val view = this.currentFocus
+        if (view != null){
+            val hideKey = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            hideKey.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
     }
 
     fun visibleItem(){
