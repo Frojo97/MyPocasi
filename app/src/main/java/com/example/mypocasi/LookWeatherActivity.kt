@@ -15,7 +15,7 @@ import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 
 class LookWeatherActivity : AppCompatActivity() {
-    val hledaneMesto: String = ""
+    var hledaneMesto: String = ""
     val appid: String = "294cb0ec8fe0f03e56f7b5250d5d7030"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +28,8 @@ class LookWeatherActivity : AppCompatActivity() {
         val btnHledat = findViewById(R.id.btnHledat) as Button
         btnHledat.setOnClickListener {
             findViewById<TextView>(R.id.tvPrazdny).visibility = View.GONE
-            
+            var etHledat = findViewById<EditText>(R.id.etHledat).text
+            hledaneMesto = etHledat.toString()
             if (hledaneMesto.length > 0)
                 pocasi().execute()
             else
@@ -76,6 +77,18 @@ class LookWeatherActivity : AppCompatActivity() {
                 val zeme = sys.getString("country")
                 val formatter: DateFormat = SimpleDateFormat("HH:mm:ss")
                 formatter.setTimeZone(TimeZone.getTimeZone("CET"))
+
+
+                findViewById<TextView>(R.id.tvMestoText).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.tvMesto).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.tvZemeText).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.tvZeme).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.tvTemp).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.tvMaxText).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.tvMax).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.tvMinText).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.tvRychlostText).visibility = View.VISIBLE
+
 
                 findViewById<TextView>(R.id.tvMin).text = teplotaMin
                 findViewById<TextView>(R.id.tvMax).text = teplotaMax
