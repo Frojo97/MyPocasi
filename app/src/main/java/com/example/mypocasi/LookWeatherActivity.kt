@@ -95,7 +95,6 @@ class LookWeatherActivity : AppCompatActivity() {
     override fun onPreExecute() {
         super.onPreExecute()
         findViewById<ProgressBar>(R.id.pbNacitani).visibility = View.VISIBLE
-       // findViewById<ConstraintLayout>(R.id.clHlavni).visibility = View.GONE
         findViewById<TextView>(R.id.tvChyba).visibility = View.GONE
         goneItem()
     }

@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 
-
 class MainActivity : AppCompatActivity() {
     private var backPressedTime = 0L
 
@@ -19,12 +18,13 @@ class MainActivity : AppCompatActivity() {
         btnVyhledat.setOnClickListener {
             val intent = Intent(this, LookWeatherActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+           // overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
         val btnHistorie = findViewById(R.id.btnHistorieHledani)  as Button
         btnHistorie.setOnClickListener {
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+            val intent = Intent(this, HistoryLookActivity::class.java)
+            //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
         val btnKonec = findViewById(R.id.btnKonec) as Button
@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
             super.finish()
         }
     }
-
 
     override fun onBackPressed() {
         if (backPressedTime + 3000 > System.currentTimeMillis()) {
