@@ -87,6 +87,10 @@ class LookWeatherActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvEndSun).visibility = View.GONE
     }
 
+    fun saveDate(){
+
+    }
+
     inner class pocasi() : AsyncTask<String, Void, String>(){
     override fun onPreExecute() {
         super.onPreExecute()
