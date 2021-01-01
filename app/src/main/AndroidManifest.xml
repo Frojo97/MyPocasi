@@ -11,7 +11,9 @@
         android:roundIcon="@drawable/ic_twotone_wb_sunny_24"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPocasi">
-        <activity android:name=".HistoryLookActivity"></activity>
+        <activity
+            android:name=".HistoryLookActivity"
+            android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".LookWeatherActivity"
             android:parentActivityName=".MainActivity" />

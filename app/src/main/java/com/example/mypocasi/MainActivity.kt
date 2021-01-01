@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         val btnHistorie = findViewById(R.id.btnHistorieHledani)  as Button
         btnHistorie.setOnClickListener {
             val intent = Intent(this, HistoryLookActivity::class.java)
+            startActivity(intent)
             //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 

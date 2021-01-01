@@ -9,4 +9,8 @@ class HistoryLookActivity : AppCompatActivity() {
         setContentView(R.layout.activity_history_look)
         supportActionBar?.hide()
     }
+
+    fun loadHistory(){
+
+    }
 }
