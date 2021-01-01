@@ -19,14 +19,20 @@ class MainActivity : AppCompatActivity() {
         btnVyhledat.setOnClickListener {
             val intent = Intent(this, LookWeatherActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+        }
+
+        val btnHistorie = findViewById(R.id.btnHistorieHledani)  as Button
+        btnHistorie.setOnClickListener {
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
         val btnKonec = findViewById(R.id.btnKonec) as Button
         btnKonec.setOnClickListener{
-            finish()
+            super.finish()
         }
     }
+
 
     override fun onBackPressed() {
         if (backPressedTime + 3000 > System.currentTimeMillis()) {
