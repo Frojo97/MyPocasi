@@ -6,7 +6,7 @@ import com.google.protobuf.InvalidProtocolBufferException
 import java.io.InputStream
 import java.io.OutputStream
 
-class SearchHistorySerializer : Serializer<SearchHistory>{
+object SearchHistorySerializer : Serializer<SearchHistory>{
     override val defaultValue: SearchHistory = SearchHistory.getDefaultInstance()
     override fun readFrom(input: InputStream): SearchHistory{
         try {
