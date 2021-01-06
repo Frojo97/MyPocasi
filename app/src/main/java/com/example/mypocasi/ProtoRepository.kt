@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import java.io.IOException
 
-
+/*
 class ProtoRepository(context: Context){
 
     private val dataStore: DataStore<SearchHistory> = context.createDataStore(
@@ -32,4 +32,4 @@ class ProtoRepository(context: Context){
     }
 
 
-}
+}*/

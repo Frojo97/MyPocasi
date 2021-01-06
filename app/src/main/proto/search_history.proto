@@ -4,5 +4,7 @@ option java_package = "com.example.mypocasi";
 option java_multiple_files = true;
 
 message SearchHistory {
-  int32 pocet = 1;
+  string nazevMesta = 1;
+  string zeme = 2;
+  string teplota = 3;
 }
