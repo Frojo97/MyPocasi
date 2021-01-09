@@ -20,6 +20,8 @@ class LookWeatherActivity : AppCompatActivity() {
     var hledaneMesto: String = ""
     val appid: String = "294cb0ec8fe0f03e56f7b5250d5d7030"
 
+    private lateinit var historyViewModel: HistoryLookViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_look_weather)
@@ -88,7 +90,10 @@ class LookWeatherActivity : AppCompatActivity() {
     }
 
     fun saveDate(){
-
+        val mesto = findViewById<TextView>(R.id.tvMesto).text
+        val stat = findViewById<TextView>(R.id.tvZeme).text
+        val teplota = findViewById<TextView>(R.id.tvTemp).text
+        historyViewModel.updateValue(mesto.toString(), stat.toString(), teplota.toString())
     }
 
     inner class pocasi() : AsyncTask<String, Void, String>(){

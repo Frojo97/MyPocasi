@@ -12,7 +12,7 @@ class ProtoRepository(context: Context){
 
     private val dataStore: DataStore<SearchHistory> = context.createDataStore(
                     fileName = "search_history.pb",
-                    serializer = SearchHistorySerializer
+                    serializer = HistoryLookSerializer()
     )
 
    val searchHistoryRead: Flow<SearchHistory> = dataStore.data
@@ -25,9 +25,9 @@ class ProtoRepository(context: Context){
                     throw exception
                 }
             }
-   suspend fun update(mesto: String){
+   suspend fun update(mesto: String, stat: String, teplota: String){
         dataStore.updateData { preference->
-            preference.toBuilder().setNazevMesta(mesto).build()
+            preference.toBuilder().setNazevMesta(mesto).setZeme(stat).setTeplota(teplota).build()
         }
    }
 }
