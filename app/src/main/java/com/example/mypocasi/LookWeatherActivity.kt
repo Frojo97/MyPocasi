@@ -15,6 +15,7 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.ViewModelProvider
 
 class LookWeatherActivity : AppCompatActivity() {
     var hledaneMesto: String = ""
@@ -29,7 +30,8 @@ class LookWeatherActivity : AppCompatActivity() {
 
         val btnHledat = findViewById(R.id.btnHledat) as Button
         btnHledat.setOnClickListener {
-            hideKeyboard()
+        saveDate("Humpolec","CZ","8")
+        /* hideKeyboard()
             findViewById<TextView>(R.id.tvPrazdny).visibility = View.GONE
             var etHledat = findViewById<EditText>(R.id.etHledat).text
             hledaneMesto = etHledat.toString()
@@ -38,7 +40,7 @@ class LookWeatherActivity : AppCompatActivity() {
             else {
                 findViewById<TextView>(R.id.tvChyba).visibility = View.GONE
                 findViewById<TextView>(R.id.tvPrazdny).visibility = View.VISIBLE
-            }
+            }*/
         }
     }
 
@@ -89,11 +91,9 @@ class LookWeatherActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvEndSun).visibility = View.GONE
     }
 
-    fun saveDate(){
-        val mesto = findViewById<TextView>(R.id.tvMesto).text
-        val stat = findViewById<TextView>(R.id.tvZeme).text
-        val teplota = findViewById<TextView>(R.id.tvTemp).text
-        historyViewModel.updateValue(mesto.toString(), stat.toString(), teplota.toString())
+    fun saveDate(mesto: String, zeme: String, teplota: String){
+        historyViewModel = ViewModelProvider(this).get(HistoryLookViewModel::class.java)
+        historyViewModel.updateValue(mesto, zeme, teplota)
     }
 
     inner class pocasi() : AsyncTask<String, Void, String>(){
@@ -136,6 +136,8 @@ class LookWeatherActivity : AppCompatActivity() {
                 formatter.setTimeZone(TimeZone.getTimeZone("CET"))
 
                 visibleItem()
+                //saveDate(mesto, zeme, teplota)
+
 
                 findViewById<TextView>(R.id.tvMin).text = teplotaMin
                 findViewById<TextView>(R.id.tvMax).text = teplotaMax
@@ -149,12 +151,15 @@ class LookWeatherActivity : AppCompatActivity() {
 
                 findViewById<ProgressBar>(R.id.pbNacitani).visibility = View.GONE
                 findViewById<ConstraintLayout>(R.id.clHlavni).visibility = View.VISIBLE
+
             }
             catch (e: Exception) {
                 findViewById<ProgressBar>(R.id.pbNacitani).visibility = View.GONE
                 findViewById<ConstraintLayout>(R.id.clHlavni).visibility = View.VISIBLE
                 findViewById<TextView>(R.id.tvChyba).visibility = View.VISIBLE
             }
+
+
         }
     }
 }

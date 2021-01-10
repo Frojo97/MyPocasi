@@ -7,8 +7,6 @@ import java.io.InputStream
 import java.io.OutputStream
 
 class HistoryLookSerializer : Serializer<SearchHistory> {
-    //override val defaultValue: SearchHistory = SearchHistory.getDefaultInstance()
-
     override fun readFrom(input: InputStream): SearchHistory{
         try {
             return SearchHistory.parseFrom(input)
@@ -17,7 +15,7 @@ class HistoryLookSerializer : Serializer<SearchHistory> {
         }
     }
 
-    override fun writeTo(t: SearchHistory, output: OutputStream){
+    override fun writeTo(t: SearchHistory, output: OutputStream) {
         t.writeTo(output)
     }
 }
