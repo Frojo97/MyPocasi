@@ -30,8 +30,7 @@ class LookWeatherActivity : AppCompatActivity() {
 
         val btnHledat = findViewById(R.id.btnHledat) as Button
         btnHledat.setOnClickListener {
-        saveDate("Humpolec","CZ","8")
-        /* hideKeyboard()
+            hideKeyboard()
             findViewById<TextView>(R.id.tvPrazdny).visibility = View.GONE
             var etHledat = findViewById<EditText>(R.id.etHledat).text
             hledaneMesto = etHledat.toString()
@@ -40,7 +39,7 @@ class LookWeatherActivity : AppCompatActivity() {
             else {
                 findViewById<TextView>(R.id.tvChyba).visibility = View.GONE
                 findViewById<TextView>(R.id.tvPrazdny).visibility = View.VISIBLE
-            }*/
+            }
         }
     }
 
@@ -64,12 +63,18 @@ class LookWeatherActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvMin).visibility = View.VISIBLE
         findViewById<TextView>(R.id.tvMaxText).visibility = View.VISIBLE
         findViewById<TextView>(R.id.tvMax).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvPocitoveText).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvPocitove).visibility = View.VISIBLE
         findViewById<TextView>(R.id.tvRychlostText).visibility = View.VISIBLE
         findViewById<TextView>(R.id.tvSpeedWind).visibility = View.VISIBLE
         findViewById<TextView>(R.id.tvVychodText).visibility = View.VISIBLE
         findViewById<TextView>(R.id.tvStartSun).visibility = View.VISIBLE
         findViewById<TextView>(R.id.tvZapadText).visibility = View.VISIBLE
         findViewById<TextView>(R.id.tvEndSun).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvTlakText).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvTlak).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvVlhkostText).visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvVlhkost).visibility = View.VISIBLE
     }
 
     fun goneItem(){
@@ -83,12 +88,18 @@ class LookWeatherActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvMin).visibility = View.GONE
         findViewById<TextView>(R.id.tvMaxText).visibility = View.GONE
         findViewById<TextView>(R.id.tvMax).visibility = View.GONE
+        findViewById<TextView>(R.id.tvPocitoveText).visibility = View.GONE
+        findViewById<TextView>(R.id.tvPocitove).visibility = View.GONE
         findViewById<TextView>(R.id.tvRychlostText).visibility = View.GONE
         findViewById<TextView>(R.id.tvSpeedWind).visibility = View.GONE
         findViewById<TextView>(R.id.tvVychodText).visibility = View.GONE
         findViewById<TextView>(R.id.tvStartSun).visibility = View.GONE
         findViewById<TextView>(R.id.tvZapadText).visibility = View.GONE
         findViewById<TextView>(R.id.tvEndSun).visibility = View.GONE
+        findViewById<TextView>(R.id.tvTlakText).visibility = View.GONE
+        findViewById<TextView>(R.id.tvTlak).visibility = View.GONE
+        findViewById<TextView>(R.id.tvVlhkostText).visibility = View.GONE
+        findViewById<TextView>(R.id.tvVlhkost).visibility = View.GONE
     }
 
     fun saveDate(mesto: String, zeme: String, teplota: String){
@@ -124,8 +135,11 @@ class LookWeatherActivity : AppCompatActivity() {
                 val vitr = jsonObj.getJSONObject("wind")
                 val pocasi = jsonObj.getJSONArray("weather").getJSONObject(0)
                 val teplota = main.getString("temp") + "°C"
+                val teplotaPocit = main.getString("feels_like") + "°C"
                 val teplotaMin = main.getString("temp_min") + "°C"
                 val teplotaMax = main.getString("temp_max") + "°C"
+                val tlak = main.getString("pressure") + " hPa"
+                val vlhkostVzduchu = main.getString("humidity") + "%"
                 val vychodSlunce : Long = sys.getLong("sunrise")
                 val zapadSlunce : Long = sys.getLong("sunset")
                 val vitrRychlost = vitr.getString("speed")
@@ -136,8 +150,6 @@ class LookWeatherActivity : AppCompatActivity() {
                 formatter.setTimeZone(TimeZone.getTimeZone("CET"))
 
                 visibleItem()
-                //saveDate(mesto, zeme, teplota)
-
 
                 findViewById<TextView>(R.id.tvMin).text = teplotaMin
                 findViewById<TextView>(R.id.tvMax).text = teplotaMax
@@ -148,18 +160,19 @@ class LookWeatherActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.tvSpeedWind).text = vitrRychlost + " m/s"
                 findViewById<TextView>(R.id.tvStartSun).text = formatter.format(vychodSlunce*1000)
                 findViewById<TextView>(R.id.tvEndSun).text = formatter.format(zapadSlunce*1000)
+                findViewById<TextView>(R.id.tvPocitove).text = teplotaPocit
+                findViewById<TextView>(R.id.tvTlak).text = tlak
+                findViewById<TextView>(R.id.tvVlhkost).text = vlhkostVzduchu
 
                 findViewById<ProgressBar>(R.id.pbNacitani).visibility = View.GONE
                 findViewById<ConstraintLayout>(R.id.clHlavni).visibility = View.VISIBLE
-
+                saveDate(mesto, zeme, teplota)
             }
             catch (e: Exception) {
                 findViewById<ProgressBar>(R.id.pbNacitani).visibility = View.GONE
                 findViewById<ConstraintLayout>(R.id.clHlavni).visibility = View.VISIBLE
                 findViewById<TextView>(R.id.tvChyba).visibility = View.VISIBLE
             }
-
-
         }
     }
 }
