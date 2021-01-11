@@ -30,8 +30,9 @@ class ProtoRepository(context: Context){
        /* dataStore.updateData { preference->
             preference.toBuilder().setNazevMesta(mesto).setZeme(stat).setTeplota(teplota).build()
         }*/
-       dataStore.updateData { currentSettings->
-           currentSettings.toBuilder().setNazevMesta(mesto).setZeme(stat).setTeplota(teplota).build()
+       dataStore.updateData { /*currentSettings->
+           currentSettings.toBuilder().setNazevMesta(mesto).setZeme(stat).setTeplota(teplota).build()*/
+           weather -> weather.toBuilder().setNazevMesta(mesto).setZeme(stat).setTeplota(teplota).build()
        }
    }
 }

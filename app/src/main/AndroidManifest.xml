@@ -12,8 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPocasi">
         <activity
+            android:name=".ItemActivity"
+            android:label="@string/title_activity_item"
+            android:theme="@style/Theme.MyPocasi.NoActionBar"></activity>
+        <activity
             android:name=".HistoryLookActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".LookWeatherActivity"
             android:parentActivityName=".MainActivity" />
