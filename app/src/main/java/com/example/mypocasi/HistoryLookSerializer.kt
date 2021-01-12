@@ -15,7 +15,6 @@ class HistoryLookSerializer : Serializer<SearchHistory> {
         }
     }
 
-    override fun writeTo(t: SearchHistory, output: OutputStream) {
-        t.writeTo(output)
-    }
+    override fun writeTo(t: SearchHistory, output: OutputStream) = t.writeTo(output)
+
 }

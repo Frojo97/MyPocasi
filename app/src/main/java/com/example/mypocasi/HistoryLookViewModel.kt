@@ -14,15 +14,10 @@ class HistoryLookViewModel(application: Application): AndroidViewModel(applicati
     private val repository = ProtoRepository(application)
     //private val repository = protoRepository.searchHistoryRead
 
-    fun showAll(){
-
-    }
-
     val firstMesto = repository.searchHistoryRead.asLiveData()
 
     fun updateValue(mesto: String, stat: String, teplota: String) = viewModelScope.launch(Dispatchers.IO){
         repository.update(mesto, stat, teplota)
        // viewModelScope.launch { protoRepository.update(mesto, stat, teplota) }
-
     }
 }

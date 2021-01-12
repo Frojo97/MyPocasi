@@ -27,7 +27,7 @@ class ProtoRepository(context: Context){
             }
 
    suspend fun update(mesto: String, stat: String, teplota: String){
-       /* dataStore.updateData { preference->
+        /*dataStore.updateData { preference->
             preference.toBuilder().setNazevMesta(mesto).setZeme(stat).setTeplota(teplota).build()
         }*/
        dataStore.updateData { /*currentSettings->
