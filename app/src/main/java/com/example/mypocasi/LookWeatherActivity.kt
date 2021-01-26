@@ -16,10 +16,16 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
+import java.sql.Struct
 
 class LookWeatherActivity : AppCompatActivity() {
     var hledaneMesto: String = ""
     val appid: String = "294cb0ec8fe0f03e56f7b5250d5d7030"
+
+    private var mestoArray: String = ""
+    private var zemeArray: String = ""
+    private var teplotaArray: String = ""
 
     private lateinit var historyViewModel: HistoryLookViewModel
 
@@ -104,7 +110,27 @@ class LookWeatherActivity : AppCompatActivity() {
 
     fun saveDate(mesto: String, zeme: String, teplota: String){
         historyViewModel = ViewModelProvider(this).get(HistoryLookViewModel::class.java)
-        historyViewModel.updateValue(mesto, zeme, teplota)
+        historyViewModel.firstMesto.observe(this, {
+            mestoArray = it.nazevMesta
+            zemeArray = it.zeme
+            teplotaArray = it.teplota
+        })
+        add(mesto, zeme, teplota)
+        //historyViewModel.updateValue(mesto, zeme, teplota)
+        historyViewModel.updateValue(mestoArray, zemeArray, teplotaArray)
+    }
+
+    fun add(mesto : String, zeme : String, teplota : String){
+        if (mestoArray.length != 0) {
+            mestoArray += "; " + mesto
+            zemeArray += "; " + zeme
+            teplotaArray += "; " + teplota
+        }
+        else {
+            mestoArray += mesto
+            zemeArray += zeme
+            teplotaArray += teplota
+        }
     }
 
     inner class pocasi() : AsyncTask<String, Void, String>(){
