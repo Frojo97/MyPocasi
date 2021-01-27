@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
 class HistoryLookViewModel(application: Application): AndroidViewModel(application) {
 //class HistoryLookViewModel(repository: ProtoRepository, private val protoRepository: ProtoRepository) : ViewModel(){
     private val repository = ProtoRepository(application)

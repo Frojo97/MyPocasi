@@ -10,6 +10,7 @@ import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import android.os.AsyncTask
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
@@ -33,6 +34,7 @@ class LookWeatherActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_look_weather)
         supportActionBar?.hide()
+        nactiData()
 
         val btnHledat = findViewById(R.id.btnHledat) as Button
         btnHledat.setOnClickListener {
@@ -108,23 +110,26 @@ class LookWeatherActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvVlhkost).visibility = View.GONE
     }
 
-    fun saveDate(mesto: String, zeme: String, teplota: String){
+    fun nactiData(){
         historyViewModel = ViewModelProvider(this).get(HistoryLookViewModel::class.java)
-        historyViewModel.firstMesto.observe(this, {
+        historyViewModel.firstMesto.observe(this) {
             mestoArray = it.nazevMesta
             zemeArray = it.zeme
             teplotaArray = it.teplota
-        })
+            //Log.d("Mesta:", it.nazevMesta)
+        }
+    }
+
+    fun saveDate(mesto: String, zeme: String, teplota: String){
         add(mesto, zeme, teplota)
-        //historyViewModel.updateValue(mesto, zeme, teplota)
         historyViewModel.updateValue(mestoArray, zemeArray, teplotaArray)
     }
 
     fun add(mesto : String, zeme : String, teplota : String){
         if (mestoArray.length != 0) {
-            mestoArray += "; " + mesto
-            zemeArray += "; " + zeme
-            teplotaArray += "; " + teplota
+            mestoArray = mestoArray + "; " + mesto
+            zemeArray = zemeArray + "; " + zeme
+            teplotaArray = teplotaArray + "; " + teplota
         }
         else {
             mestoArray += mesto
