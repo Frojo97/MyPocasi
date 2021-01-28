@@ -32,9 +32,11 @@ class HistoryLookActivity : AppCompatActivity() {
             historyZeme = it.zeme.trim().split(';')
             historyTeplota = it.teplota.trim().split(';')
 
-            val exampleList = generateDummyList(historyMesta.size)
-            findViewById<RecyclerView>(R.id.recycler_view).adapter = ItemAdapter(exampleList)
-            findViewById<RecyclerView>(R.id.recycler_view).layoutManager = LinearLayoutManager(this)
+            if (!historyMesta[0].isEmpty()) {
+                val exampleList = generateDummyList(historyMesta.size)
+                findViewById<RecyclerView>(R.id.recycler_view).adapter = ItemAdapter(exampleList)
+                findViewById<RecyclerView>(R.id.recycler_view).layoutManager = LinearLayoutManager(this)
+            }
         })
     }
 

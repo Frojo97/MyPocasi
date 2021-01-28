@@ -47,6 +47,7 @@ class LookWeatherActivity : AppCompatActivity() {
             else {
                 findViewById<TextView>(R.id.tvChyba).visibility = View.GONE
                 findViewById<TextView>(R.id.tvPrazdny).visibility = View.VISIBLE
+                goneItem()
             }
         }
     }
@@ -127,9 +128,9 @@ class LookWeatherActivity : AppCompatActivity() {
 
     fun add(mesto : String, zeme : String, teplota : String){
         if (mestoArray.length != 0) {
-            mestoArray = mestoArray + "; " + mesto
-            zemeArray = zemeArray + "; " + zeme
-            teplotaArray = teplotaArray + "; " + teplota
+            mestoArray = mestoArray + ";" + mesto
+            zemeArray = zemeArray + ";" + zeme
+            teplotaArray = teplotaArray + ";" + teplota
         }
         else {
             mestoArray += mesto
