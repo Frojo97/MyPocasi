@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option java_package = "com.example.mypocasi";
+option java_multiple_files = true;
+
+message SearchHistory {
+  string nazevMesta = 1;
+  string zeme = 2;
+  string teplota = 3;
+}
